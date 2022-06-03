@@ -1,0 +1,14 @@
+---
+- name: Install packages
+  become: yes
+  yum:
+    name:
+      - iotop
+      - sysstat
+    state: present
+
+- name : Update all packages
+  become: yes
+  yum: 
+    name: "*"
+    state: latest

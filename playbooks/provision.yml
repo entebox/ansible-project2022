@@ -1,0 +1,9 @@
+---
+# apply configuration for ubuntu servers
+- hosts: ubuntu_servers
+  roles:
+    - ../roles/ubuntu
+# apply configuration for centos servers
+- hosts: centos_servers
+  roles:
+    - ../roles/centos

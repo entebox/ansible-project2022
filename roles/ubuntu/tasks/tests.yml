@@ -1,0 +1,6 @@
+---
+- name: start chrony
+  service:
+    name=chrony
+    state=started
+    enabled=yes

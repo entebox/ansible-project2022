@@ -1,0 +1,11 @@
+---
+- name: Create a my_name directory with permissions
+  ansible.builtin.file:
+    path: /tmp/{{ my_name }}
+    state: directory
+    mode: '0644'
+
+- name: Print Distribution version
+  command: cat /etc/system-release
+  register: login
+- debug: msg="{{ login.stdout }}"

@@ -1,0 +1,28 @@
+---
+- name: Change Hostname
+  become: yes
+  ansible.builtin.hostname:
+    name: "ubuntu{{ my_name }}"
+    use: systemd
+
+- name: Add new user
+  become: yes
+  ansible.builtin.user:
+    name: "{{ username }}"
+    password: "{{ ansible_password }}"
+    shell: /bin/bash
+    groups: "{{ group }}"
+    append: yes
+
+- name: Add line to bashrc for history date
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/profile
+    line: export HISTTIMEFORMAT='%d/%m/%y %T '
+    create: no
+
+- name: Take immediate effect of the last task
+  become: yes
+  shell: source /etc/profile
+  args:
+     executable: /bin/bash
