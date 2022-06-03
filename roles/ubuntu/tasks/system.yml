@@ -1,4 +1,5 @@
 ---
+# ubuntu system related tasks
 - name: Change Hostname
   become: yes
   ansible.builtin.hostname:

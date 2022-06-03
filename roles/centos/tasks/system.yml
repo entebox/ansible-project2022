@@ -1,4 +1,5 @@
 ---
+# centos system related tasks
 - name: Create a my_name directory with permissions
   ansible.builtin.file:
     path: /tmp/{{ my_name }}
