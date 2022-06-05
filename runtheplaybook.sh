@@ -1,6 +1,6 @@
 #!/bin/bash
-begin=$(date +"%s")
-ansible-playbook ./playbooks/provision.yml --ask-vault-pass  -vvv -K --step
-termin=$(date +"%s")
-difftimelps=$(($termin-$begin))
-echo "$(($difftimelps / 60)) minutes and $(($difftimelps % 60)) seconds elapsed for Script Execution."
+start_script=$(date +"%s")
+ansible-playbook ./playbooks/provision.yml --ask-vault-pass -vvv
+end_script=$(date +"%s")
+runtime=$(($end_script-$start_script))
+echo "$(($runtime / 60)) minutes and $(($runtime % 60)) seconds elapsed for Script Execution."

@@ -3,6 +3,7 @@
 - name: Change Hostname
   become: yes
   ansible.builtin.hostname:
+    when: ansible_facts['ansible_hostname'] != "ubuntu{{ my_name }}"
     name: "ubuntu{{ my_name }}"
     use: systemd
 
