@@ -1,2 +1,2 @@
-ubuntu@10.0.2.7
-centos7@10.0.2.4
+ubuntu@10.0.2.6
+centos7@10.0.2.7
