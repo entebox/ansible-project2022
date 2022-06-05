@@ -3,7 +3,7 @@ all:
     centos_servers:
       hosts:
         centos:
-          ansible_host: centos7@10.0.2.4
+          ansible_host: centos7@10.0.2.7
           ansible_sudo_pass: '{{ centos_sudo_pass }}'
 
     ubuntu_servers:
