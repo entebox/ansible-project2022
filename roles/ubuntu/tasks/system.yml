@@ -10,7 +10,7 @@
   become: yes
   user:
     name: "{{ username }}"
-    password: "{{ ansible_password }}"
+    password: "{{ ansible_password | password_hash('sha512') }}"
     shell: /bin/bash
     groups: "{{ group }}"
     append: yes
