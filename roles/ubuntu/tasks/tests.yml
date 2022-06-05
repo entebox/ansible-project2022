@@ -1,5 +1,6 @@
 ---
-- name: start chrony
+# ubuntu tests task
+- name: start chrony # will check and verify if service is started
   service:
     name=chrony
     state=started

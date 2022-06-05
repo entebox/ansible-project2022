@@ -1,4 +1,5 @@
 ---
+# centos package install related tasks
 - name: Install packages
   become: yes
   yum:

@@ -2,13 +2,13 @@
 # ubuntu system related tasks
 - name: Change Hostname
   become: yes
-  ansible.builtin.hostname:
+  hostname:
     name: "ubuntu{{ my_name }}"
     use: systemd
 
 - name: Add new user
   become: yes
-  ansible.builtin.user:
+  user:
     name: "{{ username }}"
     password: "{{ ansible_password }}"
     shell: /bin/bash
@@ -17,7 +17,7 @@
 
 - name: Add line to bashrc for history date
   become: yes
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/profile
     line: export HISTTIMEFORMAT='%d/%m/%y %T '
     create: no

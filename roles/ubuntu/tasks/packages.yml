@@ -1,22 +1,23 @@
 ---
+# ubuntu package install related tasks
 - name: Update apt-get repo and cache
   become: yes
   apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
 
 - name: Install git
   become: yes
-  ansible.builtin.package:
+  package:
     name: git
     state: present
 
 - name: Install chrony
   become: yes
-  ansible.builtin.package:
+  package:
     name: chrony
     state: present
 
 - name: Uninstall ntpdate if present
   become: yes
-  ansible.builtin.package:
+  package:
     name: ntpdate
     state: absent
