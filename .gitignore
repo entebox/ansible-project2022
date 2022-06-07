@@ -1,1 +1,5 @@
 vaultpassfile
+group_vars/centos_servers.yml
+group_vars/ubuntu_servers.yml
+roles/centos/vars/main.yml
+roles/ubuntu/vars/main.yml
