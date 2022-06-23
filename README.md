@@ -1,13 +1,13 @@
-The VMS
+# The VMS
 1 x ansible ( you can choose the OS ) 
 1 x CentOS7 ( do not install gui\desktop )
 1 x Ubuntu 20 ( do not install gui\desktop )
 
-The Tasks
+# The Tasks
 On the Ansible instance please install ansible and write a playbook to configure the CentOS 
 and Ubuntu.
 The playbook should contain 2 roles ( one for centos and one for ubuntu )
-ubuntu: 
+# ubuntu: 
 • Change the hostname to “ubuntu_{your_name}”
 • Create a local user ( user name: ansible password: ansible )
 • Install the following packages:
@@ -17,7 +17,7 @@ server )
  3. Remove ntpdate package 
  4. Add history date to bashrc file ( so when running the history command you will get 
  date and time of each command )
-Centos:
+# Centos:
 • Create a directory with the name { your_full_name } under /tmp ( make sure the owner 
 have r+w, group: read-only, world: read-only ) 
 • Install iotop, sysstat packages
@@ -27,8 +27,8 @@ Please create shell script to execute the above ansible playbook – the shell s
 run the ansible playbook, it will also time the running time of the ansible playbook ( how 
 long it takes to run the ansible-playbook )
 
-Documentation:
-The installation of the VMs
+# Documentation:
+## The installation of the VMs
 After creation on VirtualBox
 1.	Change vm nic to Bridged to make the host talk with the vms
  
@@ -45,8 +45,8 @@ And run sudo netplan apply to take effect immediately
 
 
 
-Ansible server:
-Install ansible steps:
+## Ansible server:
+## Install ansible steps:
 1.	sudo apt update && upgrade
 2.	sudo apt install ansible
 3.	copy public ssh key to your hosts:
@@ -55,12 +55,13 @@ ssh-copy-id ubuntu@10.0.2.6
 ssh-copy-id centos7@10.0.2.7
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
-
 or use the script scankeys.sh after modify list_hosts.txt
-create ansible folder structure:
+
+
+## create ansible folder structure:
 <img src=https://github.com/entebox/ansible-project2022/blob/master/Schema.png>
-1.	create folder ansible-project2022 or clone from my github into /home/ansible
- 
+
+1.	create folder ansible-project2022 or clone from my github into /home/ansible 
 2.	git init in the current folder (if not cloned from github.com)
 3.	cp /etc/ansible/hosts .
 4.	rename hosts to inventory, convert it to yaml (to let ansible-vault work correctly).
@@ -88,9 +89,10 @@ ansible all -m ping --vault-password-file vaultpassfile
 to test connection
 11.	run the playbook from root folder:
 ansible-playbook ./playbooks/provision.yml --vault-password-file vaultpassfile -vvv –step
-TESTS
 
-Ubuntu:
+# TESTS
+
+## Ubuntu:
 1.hostname
 2. connect via ssh ansible@10.0.2.6 with password ansible
 3. check git version
@@ -99,7 +101,7 @@ Ubuntu:
 dpkg -l | grep ntpdate
 6. history
 
-Centos:
+## Centos:
 1. ls -ld /tmp/avi_berger
 2. yum info iotop | grep Repo | awk '{ print $3 }'
     Or run: iotop
