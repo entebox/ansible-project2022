@@ -58,6 +58,7 @@ sudo systemctl disable firewalld
 
 or use the script scankeys.sh after modify list_hosts.txt
 create ansible folder structure:
+https://github.com/entebox/ansible-project2022/blob/master/Schema.png
 1.	create folder ansible-project2022 or clone from my github into /home/ansible
  
 2.	git init in the current folder (if not cloned from github.com)
